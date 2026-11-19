@@ -47,7 +47,7 @@ export default function HomePage() {
           <div>
             <small>Oferta especial</small>
             <h2>Air Jordan edição de colecionador</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+            <p>O Air Jordan em edição de colecionador chegou à Drip Store. Couro premium, design icônico e unidades limitadas para quem não abre mão de estilo.</p>
             <Link to="/products" className="btn-primary">Ver Oferta</Link>
           </div>
         </div>

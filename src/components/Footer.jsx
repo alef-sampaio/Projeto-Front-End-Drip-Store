@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <Logo white />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+          <p>Moda esportiva e streetwear com os melhores preços. Tênis, camisetas e acessórios das marcas que você gosta, com entrega para todo o Brasil.</p>
           <div className="social">
             <a href="https://facebook.com" aria-label="Facebook">f</a>
             <a href="https://instagram.com" aria-label="Instagram">ig</a>
