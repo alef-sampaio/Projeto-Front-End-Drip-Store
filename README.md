@@ -11,4 +11,4 @@ Projeto final de Front-end (React + Vite + React Router).
 - `/` Home · `/products?filter=termo` Listagem · `/product/:id` Produto
 
 ## Equipe
-- (nomes dos integrantes)
+- Alef Alexandre

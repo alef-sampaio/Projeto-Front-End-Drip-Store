@@ -20,7 +20,7 @@ export default function ProductViewPage() {
           <Gallery images={imgs} width="700" height="570" radius="4px" showThumbs />
           <BuyBox name="Tênis Nike Revolution 6 Next Nature Masculino" reference="Casual | Nike | REF:38416711"
             stars={4.7} rating={90} price={219}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.">
+            description="Tênis Nike de cano baixo, com predominância da cor branca e detalhes em vermelho. Possui o famoso logotipo da Nike na lateral, cadarços brancos e solado mais robusto, com detalhes vermelhos e a inscrição “AIR”. Seu design combina um estilo esportivo e casual, sendo uma opção versátil para usar no dia a dia.">
             <h5>Tamanho</h5>
             <ProductOptions options={['39', '40', '41', '42', '43']} />
             <h5>Cor</h5>
