@@ -4,6 +4,7 @@ import Logo from './Logo'
 
 export default function Header() {
   const [term, setTerm] = useState('')
+  const cartCount = 0
   const navigate = useNavigate()
   const search = () => navigate(`/products?filter=${encodeURIComponent(term.trim())}`)
   return (
@@ -20,10 +21,10 @@ export default function Header() {
         <div className="auth">
           <Link to="/signup" className="signup">Cadastre-se</Link>
           <Link to="/login" className="btn-enter">Entrar</Link>
-          <span className="cart" aria-label="Carrinho">
+          <Link to="/cart" className="cart" aria-label="Carrinho">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C92071" strokeWidth="1.8"><path d="M3 4h2l2.4 10.2a1 1 0 0 0 1 .8h8.4a1 1 0 0 0 1-.8L19.5 8H6" /><circle cx="9" cy="19" r="1.3" /><circle cx="17" cy="19" r="1.3" /></svg>
-            <b>2</b>
-          </span>
+            {cartCount > 0 && <b>{cartCount}</b>}
+          </Link>
         </div>
       </div>
       <nav className="container nav">

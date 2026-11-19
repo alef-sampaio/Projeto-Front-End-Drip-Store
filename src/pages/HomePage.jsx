@@ -35,7 +35,7 @@ export default function HomePage() {
           </div>
         </Section>
         <Section title="Categorias em destaque" titleAlign="center">
-          <div className="cats">{cats.map((c) => <div key={c}><span className="circle"><CategoryIcon name={c} /></span>{c}</div>)}</div>
+          <div className="cats">{cats.map((c) => <Link to="/products" key={c}><span className="circle"><CategoryIcon name={c} /></span>{c}</Link>)}</div>
         </Section>
         <Section title="Produtos em alta" link={{ text: 'Ver todos', href: '/products' }}>
           <ProductListing products={products.slice(0, 8)} />
