@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Layout from './Layout'
-import Section from '../components/Section'
 import ProductListing from '../components/ProductListing'
 import FilterGroup from '../components/FilterGroup'
 import { products } from '../data/products'
@@ -12,17 +11,20 @@ export default function ProductListingPage() {
   const [params] = useSearchParams()
   const filter = (params.get('filter') || '').toLowerCase()
   const [order, setOrder] = useState('')
-  const [brands, setBrands] = useState([])
-  const toggle = (b) => setBrands((s) => (s.includes(b) ? s.filter((x) => x !== b) : [...s, b]))
+  const [sel, setSel] = useState({ brand: [], category: [], gender: [], state: [] })
+
+  const toggle = (key) => (v) =>
+    setSel((s) => ({ ...s, [key]: s[key].includes(v) ? s[key].filter((x) => x !== v) : [...s[key], v] }))
+  const choose = (key) => (v) => setSel((s) => ({ ...s, [key]: [v] }))
 
   const list = useMemo(() => {
     const price = (p) => p.priceDiscount ?? p.price
     let l = products.filter((p) => !filter || `${p.name} ${p.brand}`.toLowerCase().includes(filter))
-    if (brands.length) l = l.filter((p) => brands.includes(p.brand))
+    for (const k of Object.keys(sel)) if (sel[k].length) l = l.filter((p) => sel[k].includes(p[k]))
     if (order === 'min') l = [...l].sort((a, b) => price(a) - price(b))
     if (order === 'max') l = [...l].sort((a, b) => price(b) - price(a))
     return l
-  }, [filter, brands, order])
+  }, [filter, sel, order])
 
   return (
     <Layout>
@@ -40,12 +42,12 @@ export default function ProductListingPage() {
         <div className="list-body">
           <aside className="filters">
             <h3>Filtrar por</h3><hr />
-            <FilterGroup title="Marca" options={opts('Adiddas', 'Calenciaga', 'K-Swiss', 'Nike', 'Puma')} selected={brands} onChange={toggle} />
-            <FilterGroup title="Categoria" options={opts('Esporte e lazer', 'Casual', 'Utilitário', 'Corrida')} />
-            <FilterGroup title="Gênero" options={opts('Masculino', 'Feminino', 'Unisex')} />
-            <FilterGroup title="Estado" inputType="radio" options={opts('Novo', 'Usado')} />
+            <FilterGroup title="Marca" options={opts('Adiddas', 'Calenciaga', 'K-Swiss', 'Nike', 'Puma')} selected={sel.brand} onChange={toggle('brand')} />
+            <FilterGroup title="Categoria" options={opts('Esporte e lazer', 'Casual', 'Utilitário', 'Corrida')} selected={sel.category} onChange={toggle('category')} />
+            <FilterGroup title="Gênero" options={opts('Masculino', 'Feminino', 'Unisex')} selected={sel.gender} onChange={toggle('gender')} />
+            <FilterGroup title="Estado" inputType="radio" options={opts('Novo', 'Usado')} selected={sel.state} onChange={choose('state')} />
           </aside>
-          <ProductListing products={list} columns={3} />
+          {list.length ? <ProductListing products={list} columns={3} /> : <p className="empty">Nenhum produto encontrado com esses filtros.</p>}
         </div>
       </div>
     </Layout>
