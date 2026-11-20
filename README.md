@@ -11,7 +11,6 @@ Projeto final de Front-end do curso da Digital College: uma loja virtual de tên
 
 - Alef Alexandre
 
----
 
 ##  Tecnologias
 
