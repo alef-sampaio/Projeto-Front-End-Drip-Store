@@ -17,7 +17,7 @@ export default function HomePage() {
         <Gallery images={slides} width="1440" height="681" className="hero" />
         <div className="hero-text">
           <small>Melhores ofertas personalizadas</small>
-          <h1>Queima de stoque Nike</h1>
+          <h1>Queima de stoque Nike </h1>
           <p>Tênis das melhores marcas com até 30% de desconto. Aproveite enquanto durar o estoque.</p>
           <Link to="/products" className="btn-primary">Ver Ofertas</Link>
         </div>
